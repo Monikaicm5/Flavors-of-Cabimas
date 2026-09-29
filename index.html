@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Flavors of Cabimas · Venezuelan Food in North Lauderdale</title>
+  <meta name="description" content="Arepas, Arepa Cabimera, cachapas, burgers, bowls and more. Venezuelan food at 1651 S State Road 7, North Lauderdale, FL. Open daily 11 AM to 11 PM.">
+  <meta name="theme-color" content="#111111">
+
+  <meta property="og:title" content="Flavors of Cabimas">
+  <meta property="og:description" content="Sabor venezolano in North Lauderdale: arepas, cachapas, burgers and bowls.">
+  <meta property="og:image" content="/assets/icon-512.png">
+  <meta property="og:type" content="restaurant">
+
+  <link rel="icon" href="/assets/logo.svg" type="image/svg+xml">
+  <link rel="icon" href="/assets/icon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Flavors">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Flavors of Cabimas",
+    "servesCuisine": "Venezuelan",
+    "telephone": "+1-786-920-5210",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "1651 S State Road 7",
+      "addressLocality": "North Lauderdale",
+      "addressRegion": "FL",
+      "postalCode": "33068",
+      "addressCountry": "US"
+    },
+    "openingHours": "Mo-Su 11:00-23:00",
+    "sameAs": ["https://www.instagram.com/flavorsofcabimas/", "https://www.tiktok.com/@flavorsofcabimas"]
+  }
+  </script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Flavors of Cabimas home">
+      <img src="/assets/logo.svg" alt="" width="44" height="44">
+      <span>Flavors <small>of Cabimas</small></span>
+    </a>
+    <nav class="topnav" aria-label="Main">
+      <a href="#menu">Menu</a>
+      <a href="#about">About</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a class="btn btn-yellow btn-sm" data-link="doordash" target="_blank" rel="noopener">Order</a>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-rays" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <img class="hero-logo" src="/assets/logo.svg" alt="Flavors of Cabimas logo" width="260" height="260">
+        <div class="hero-copy">
+          <p class="eyebrow">Venezuelan kitchen · North Lauderdale</p>
+          <h1>Sabor venezolano,<br><span>straight from Cabimas.</span></h1>
+          <p class="lede">Arepas stuffed to the edges, sweet corn cachapas with queso de mano, 200 g artisan burgers, and the one and only <strong>Arepa Cabimera</strong>.</p>
+          <div class="cta-row">
+            <a class="btn btn-yellow" data-link="doordash" target="_blank" rel="noopener">Order delivery</a>
+            <a class="btn btn-outline" data-link="phone">Call <span data-text="phoneDisplay"></span></a>
+            <a class="btn btn-ghost" href="#menu">See the menu</a>
+          </div>
+          <ul class="badges">
+            <li><span class="stars" aria-hidden="true">★★★★★</span> <strong data-text="rating"></strong> on Google · <span data-text="reviews"></span> reviews</li>
+            <li><span class="dot" aria-hidden="true"></span> <span id="open-status">Open daily 11 AM – 11 PM</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="menu" class="menu-section">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow dark">El menú</p>
+          <h2>Our Menu</h2>
+        </div>
+
+        <div class="menu-tools">
+          <label class="search">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            <input id="menu-search" type="search" placeholder="Search the menu: arepa, cachapa, burger…" autocomplete="off">
+          </label>
+        </div>
+        <nav class="chips" id="menu-chips" aria-label="Menu categories"></nav>
+
+        <div id="favorites" class="favorites"></div>
+        <div id="menu-list"></div>
+        <p id="menu-empty" class="menu-empty" hidden>Nothing matches that. Try “arepa” or “cachapa”.</p>
+        <p class="fineprint">Prices and availability may vary. Please ask in store for today’s options.</p>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="wrap about-grid">
+        <div>
+          <p class="eyebrow">Nuestra historia</p>
+          <h2>A little piece of Cabimas in South Florida</h2>
+          <p>Cabimas sits on the shores of Lake Maracaibo in Zulia, Venezuela: hot sun, big flavor, and food made to share. We brought that home cooking to North Lauderdale: arepas and cachapas made the way we grew up eating them, plus burgers with names anyone from back home will recognize: Los Médanos, El Lucero, Buena Vista, Ambrosio.</p>
+          <p>Come hungry. Leave <em>full</em>.</p>
+        </div>
+        <ul class="pillars">
+          <li><strong>Arepa Cabimera</strong><span>The house signature, fried and loaded Cabimas-style.</span></li>
+          <li><strong>Cachapas</strong><span>Sweet corn, queso de mano, and your choice of meat.</span></li>
+          <li><strong>200 g burgers</strong><span>Artisan beef stacked with plantain, bacon, chips and more.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="visit" class="visit">
+      <div class="wrap visit-grid">
+        <div class="visit-card">
+          <p class="eyebrow dark">Visítanos</p>
+          <h2>Come see us</h2>
+          <dl>
+            <dt>Address</dt>
+            <dd><a data-link="maps" target="_blank" rel="noopener" data-text="address"></a></dd>
+            <dt>Hours</dt>
+            <dd><span data-text="hours"></span></dd>
+            <dt>Phone</dt>
+            <dd><a data-link="phone" data-text="phoneDisplay"></a></dd>
+          </dl>
+          <div class="cta-row">
+            <a class="btn btn-black" data-link="maps" target="_blank" rel="noopener">Get directions</a>
+            <a class="btn btn-yellow" data-link="doordash" target="_blank" rel="noopener">Order on DoorDash</a>
+          </div>
+        </div>
+        <div class="map">
+          <iframe title="Map to Flavors of Cabimas" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=Flavors+of+Cabimas,+1651+S+State+Road+7,+North+Lauderdale,+FL+33068&output=embed"></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <img src="/assets/logo.svg" alt="Flavors of Cabimas" width="72" height="72">
+      <div class="socials">
+        <a data-link="instagram" target="_blank" rel="noopener">Instagram</a>
+        <a data-link="tiktok" target="_blank" rel="noopener">TikTok</a>
+        <a data-link="doordash" target="_blank" rel="noopener">DoorDash</a>
+      </div>
+      <p>© <span id="year"></span> Flavors of Cabimas · <span data-text="address"></span></p>
+    </div>
+  </footer>
+
+  <nav class="mobile-bar" aria-label="Quick actions">
+    <a data-link="phone">Call</a>
+    <a data-link="maps" target="_blank" rel="noopener">Directions</a>
+    <a class="primary" data-link="doordash" target="_blank" rel="noopener">Order</a>
+  </nav>
+
+  <script src="/js/menu.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>
