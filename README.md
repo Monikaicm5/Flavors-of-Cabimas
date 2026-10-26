@@ -14,7 +14,9 @@ line, then commit to `main`. Netlify redeploys automatically.
 { name: "Cachapa de Queso", price: 15.58, featured: true, desc: "The classic, with queso de mano." },
 ```
 
-- `featured: true` puts the dish in the yellow "Favoritos de la casa" row.
+- `featured: true` puts the dish in the "Favoritos de la casa" photo row.
+- To add a food photo, put it in `assets/photos/` and add `photo: "/assets/photos/your-file.jpg"` to the dish.
+  For the big photo at the top of the page, set `heroPhoto` near the top of `js/menu.js`. Until a photo is set, the logo shows in its place.
 - Phone, hours, address and links (DoorDash, Instagram, TikTok, Google Maps) are at the top of the same file.
 - After a menu change, bump `VERSION` in `sw.js` (e.g. `v1` → `v2`) so installed phones refresh.
 
@@ -35,7 +37,7 @@ Android: menu → Install app). It opens full-screen with the Flavors logo as th
 | Path | What it is |
 | --- | --- |
 | `index.html` | The page |
-| `css/styles.css` | Yellow / black / white styling |
+| `css/styles.css` | Styling (dark "Noche" design: Anton, Archivo, Space Mono) |
 | `js/menu.js` | Menu, prices, contact info, links |
 | `js/app.js` | Builds the menu, search, open/closed badge |
 | `assets/logo.svg` | Logo (vector, use anywhere) |

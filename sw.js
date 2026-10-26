@@ -1,6 +1,6 @@
 // Lets the site install as an app and open offline.
 // Bump VERSION whenever you change the menu so phones pick up the new version.
-const VERSION = "v1";
+const VERSION = "v2";
 const CACHE = "flavors-" + VERSION;
 const FILES = [
   "/",

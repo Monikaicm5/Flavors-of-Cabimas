@@ -2,6 +2,9 @@
   const R = window.RESTAURANT;
   const MENU = window.MENU;
 
+  const money = (n) => "$" + n.toFixed(2);
+  const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
+
   // Fill in shared text and links from menu.js so they live in one place.
   document.querySelectorAll("[data-text]").forEach((el) => {
     el.textContent = R[el.dataset.text];
@@ -12,27 +15,37 @@
   });
   document.getElementById("year").textContent = new Date().getFullYear();
 
+  // Photos: set a path in menu.js (heroPhoto, or `photo` on a dish). Until then the logo stands in.
+  const photo = (src, alt) =>
+    src
+      ? `<img src="${esc(src)}" alt="${esc(alt)}" loading="lazy">`
+      : `<span class="photo-empty" aria-hidden="true"><img src="/assets/logo.svg" alt=""></span>`;
+  document.querySelectorAll("[data-photo]").forEach((el) => {
+    el.innerHTML = photo(R[el.dataset.photo], el.dataset.alt || "");
+  });
+
   // Open / closed badge, using the restaurant's local time (Florida).
   (function openStatus() {
-    const el = document.getElementById("open-status");
     const hour = Number(
       new Intl.DateTimeFormat("en-US", { hour: "numeric", hour12: false, timeZone: "America/New_York" }).format(new Date())
     ) % 24;
     const open = hour >= 11 && hour < 23;
+    const el = document.getElementById("open-status");
     el.textContent = open ? "Open now · until 11 PM" : "Closed now · opens 11 AM";
-    el.parentElement.classList.toggle("is-closed", !open);
+    el.classList.toggle("is-closed", !open);
+    document.getElementById("open-short").textContent = open ? "Open til 11 PM" : "Opens 11 AM";
   })();
 
-  const money = (n) => "$" + n.toFixed(2);
-  const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
-
-  function itemCard(item) {
-    return `<article class="item">
-      <div class="item-top">
-        <h4>${esc(item.name)}</h4>
-        <span class="price">${money(item.price)}</span>
+  function itemRow(item) {
+    return `<article class="item${item.photo ? " has-photo" : ""}">
+      ${item.photo ? `<div class="item-photo">${photo(item.photo, item.name)}</div>` : ""}
+      <div class="item-body">
+        <div class="item-top">
+          <h4>${esc(item.name)}</h4>
+          <span class="price">${money(item.price)}</span>
+        </div>
+        ${item.desc ? `<p>${esc(item.desc)}</p>` : ""}
       </div>
-      ${item.desc ? `<p>${esc(item.desc)}</p>` : ""}
     </article>`;
   }
 
@@ -43,17 +56,19 @@
     <div class="fav-row">${favs
       .map(
         (i) => `<article class="fav">
-          <span class="fav-cat">${esc(i.cat)}</span>
-          <h4>${esc(i.name)}</h4>
+          <div class="fav-photo">${photo(i.photo, i.name)}<span class="fav-cat">${esc(i.cat)}</span></div>
+          <div class="fav-top">
+            <h4>${esc(i.name)}</h4>
+            <span class="price">${money(i.price)}</span>
+          </div>
           ${i.desc ? `<p>${esc(i.desc)}</p>` : ""}
-          <span class="price">${money(i.price)}</span>
         </article>`
       )
       .join("")}</div>`;
 
   // Category chips + full menu
   const chips = document.getElementById("menu-chips");
-  chips.innerHTML = MENU.map((c) => `<a href="#cat-${c.id}" class="chip" data-cat="${c.id}">${esc(c.name)}</a>`).join("");
+  chips.innerHTML = MENU.map((c, n) => `<a href="#cat-${c.id}" class="chip${n ? "" : " active"}" data-cat="${c.id}">${esc(c.name)}</a>`).join("");
 
   const list = document.getElementById("menu-list");
   list.innerHTML = MENU.map(
@@ -62,7 +77,7 @@
         <h3>${esc(c.name)}</h3>
         ${c.blurb ? `<p>${esc(c.blurb)}</p>` : ""}
       </header>
-      <div class="items">${c.items.map(itemCard).join("")}</div>
+      <div class="items">${c.items.map(itemRow).join("")}</div>
     </section>`
   ).join("");
 

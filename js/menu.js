@@ -1,6 +1,9 @@
 // Menu for Flavors of Cabimas.
 // To change a price, name or description, edit it here — the website updates automatically.
 // Items marked `featured: true` show up in the "Favorites" row at the top of the menu.
+// To show a food photo, drop it in assets/photos/ and add it to the dish, e.g.
+//   { name: "Arepa Cabimera", ..., photo: "/assets/photos/arepa-cabimera.jpg" }
+// Dishes without a photo show the logo instead.
 
 window.RESTAURANT = {
   name: "Flavors of Cabimas",
@@ -11,6 +14,7 @@ window.RESTAURANT = {
   hours: "Open daily · 11:00 AM – 11:00 PM",
   rating: "5.0",
   reviews: 35,
+  heroPhoto: "", // big photo at the top of the page, e.g. "/assets/photos/hero.jpg"
   links: {
     doordash: "https://www.doordash.com/store/flavors-of-cabimas-north-lauderdale-42280443/",
     maps: "https://www.google.com/maps/search/?api=1&query=Flavors+of+Cabimas+1651+S+State+Road+7+North+Lauderdale+FL",
